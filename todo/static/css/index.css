@@ -1,0 +1,292 @@
+/* =========================
+   Merged glowing UI stylesheet
+   (drop-in for index.css / style.css)
+   ========================= */
+
+/* Theme variables */
+:root{
+  --bg: #0f1f37;
+  --card: rgba(255,255,255,0.03);
+  --card-2: rgba(255,255,255,0.02);
+  --accent: #ff4d6d;      /* pink / primary glow */
+  --accent-2: #8758ff;    /* secondary purple */
+  --success: #35c37d;
+  --danger: #ff2d2d;
+  --muted: #cbd5e1;
+  --white: #ffffff;
+  --glass-border: rgba(255,255,255,0.06);
+  --radius: 18px;
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  box-sizing: border-box;
+}
+
+/* Reset & base */
+*{box-sizing:inherit}
+html,body{height:100%}
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(111,231,214,0.03), transparent 5%),
+    radial-gradient(circle at 85% 90%, rgba(255,77,109,0.02), transparent 8%),
+    var(--bg);
+  color:var(--muted);
+}
+
+/* ---------- Layout / container ---------- */
+.signup-login {
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:48px 16px;
+  min-height:100vh;
+  width:100%;
+}
+
+/* Card */
+.signup-box{
+  width:100%;
+  max-width:520px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:calc(var(--radius) + 6px);
+  padding:28px;
+  box-shadow:
+    0 12px 40px rgba(2,6,23,0.65),
+    0 2px 8px rgba(0,0,0,0.45),
+    0 0 40px rgba(111,231,214,0.03);
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid var(--glass-border);
+  height: auto;           /* let it grow with content */
+  max-height: calc(100vh - 96px); /* keep inside viewport */
+  overflow: hidden;
+  position: relative;
+}
+
+/* older variant you had (.signup-box1) */
+.signup-box1{
+  background-color: rgba(255,255,255,0.03);
+  height: 555px;
+  width: 520px;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* heading */
+.heading{
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  text-align: center;
+  color: var(--white);
+  letter-spacing: 0.3px;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+/* small heading element from original (b) */
+b{
+  font-size: 20px;
+  font-weight: 500;
+  color:var(--muted);
+}
+
+/* header row */
+.heads{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+/* logout / icons */
+.anca{
+  font-size: 20px;
+  margin-top: 4px;
+}
+.anca .sign i{
+  color:var(--muted);
+  font-size:18px;
+  padding:8px;
+  border-radius:10px;
+  transition:all .18s ease;
+}
+.anca .sign:hover i{
+  transform:translateY(-2px);
+  color:var(--accent);
+  text-shadow: 0 0 12px rgba(255,77,109,0.85);
+}
+
+/* ---------- Inputs & Buttons ---------- */
+.inp, .todo-input {
+  width: calc(100% - 40px);
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  color:var(--white);
+  font-size:16px;
+  margin: 10px;
+  outline:none;
+  transition: box-shadow .16s ease, border-color .16s ease, transform .12s ease;
+}
+.inp::placeholder, .todo-input::placeholder {
+  color: #ffffffa5;
+}
+.inp:focus, .todo-input:focus{
+  box-shadow: 0 6px 28px rgba(111,231,214,0.06);
+  border-color: rgba(111,231,214,0.9);
+  transform: translateY(-1px);
+}
+
+/* submit button general */
+.submit-button, .todo-btn {
+  display:block;
+  width: calc(100% - 40px);
+  padding:12px 18px;
+  margin: 10px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(90deg, #151515, #2b2b2b);
+  color:var(--white);
+  font-weight:600;
+  letter-spacing:0.3px;
+  cursor:pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 6px 24px rgba(2,6,23,0.6);
+}
+.submit-button:hover, .todo-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 34px rgba(2,6,23,0.8);
+}
+
+/* special hover you had */
+.submit-button:hover{
+  background-color: rgba(255,255,0,0.6); /* subtle yellow accent on hover */
+  color:#111;
+}
+
+/* divider */
+.line{
+  margin: 10px;
+  height: 1px;
+  width: calc(100% - 40px);
+  background-color: rgba(255,255,255,0.03);
+  border: none;
+}
+
+/* anchor style (leftover) */
+.anc{
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* small helper classes */
+.scr{
+  overflow-y:auto;
+  max-height: calc(100vh - 300px); /* make inner list scrollable */
+  padding-right: 6px;
+}
+.scr::-webkit-scrollbar { width: 8px; }
+.scr::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.06); border-radius: 8px; }
+
+/* ---------- Todo items ---------- */
+.Todo {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:18px;
+  border-radius:10px;
+  margin: 10px;
+  transition: transform .12s ease, box-shadow .12s ease;
+  position:relative;
+  overflow:hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* completed style */
+.completed {
+  text-decoration: line-through;
+  opacity:0.8;
+  color: #c5aeff;
+}
+
+/* green / red states (kept your names) */
+.todo-green{
+  background: linear-gradient(90deg, rgba(111,231,214,0.12), rgba(111,231,214,0.05));
+  box-shadow: 0 8px 26px rgba(111,231,214,0.06);
+  border-left:4px solid rgba(111,231,214,0.9);
+}
+.todo-red{
+  background: linear-gradient(90deg, rgba(255,77,109,0.12), rgba(255,77,109,0.04));
+  box-shadow: 0 8px 26px rgba(255,77,109,0.06);
+  border-left:4px solid rgba(255,77,109,0.92);
+}
+
+/* task title */
+.Todo p{
+  margin:0;
+  flex:1 1 auto;
+  text-align:center;
+  font-size:18px;
+  color:var(--white);
+  font-weight:600;
+}
+
+/* small icons & links */
+.Todo a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-left:8px;
+  text-decoration:none;
+  color:var(--white);
+  padding:6px;
+  border-radius:8px;
+  transition: all .12s ease;
+}
+.Todo a i{ font-size:18px; color:var(--white); }
+.Todo a:hover{ transform:translateY(-2px); color:var(--accent); text-shadow: 0 4px 18px rgba(255,77,109,0.7); }
+.Todo a:last-child:hover i{ color:var(--danger); text-shadow: 0 6px 26px rgba(255,45,45,0.5); }
+
+/* trash icon spacing (from your style) */
+.fa-trash { margin-left: 0.75rem; }
+
+/* status-toggle button (kept and polished) */
+.status-toggle{
+  padding:8px 10px;
+  border-radius:6px;
+  border:1px solid rgba(0,0,0,0.08);
+  background: linear-gradient(180deg,#fff,#f0f0f0);
+  color:#222;
+  font-weight:600;
+  cursor:pointer;
+  margin-right:12px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.status-toggle:hover{ transform: translateY(-2px); }
+
+/* ---------- small utility / responsiveness ---------- */
+@media (max-width:720px){
+  .signup-login{ padding:22px; align-items:flex-start; }
+  .signup-box{ padding:18px; max-width:92%; border-radius:14px; }
+  .heading{ font-size:26px; text-align:center; }
+  .Todo p{ font-size:16px; }
+  .inp, .todo-input{ width: calc(100% - 32px); margin:8px; }
+  .submit-button{ width: calc(100% - 32px); margin:8px; }
+  .Todo{ padding:12px; margin:8px; border-radius:10px; }
+}
+
+/* keep older small styles compatibility in case other files reference them */
+.App { text-align:center; }
+.TodoWrapper { background-color: #252525; margin-top: 10px; padding: 6px; border-radius: 5px; }
+
+/* end of stylesheet */
